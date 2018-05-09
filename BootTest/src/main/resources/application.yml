@@ -1,0 +1,94 @@
+server:
+  port : 2080
+
+---
+mapper:
+  scan:
+    direct : com.boot.frame
+---
+
+#DB
+spring:
+  datasource:
+    write:
+      url : jdbc:mysql://127.0.0.1:3306/xxxxxxxxxx?useUnicode=true&characterEncoding=utf8&noAccessToProcedureBodies=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+      username : xxxxxxxxxx
+      password : xxxxxxxxxx
+      initialSize : 10
+      minIdle : 5
+      maxActive : 100
+      maxWait : 60000
+      timeBetweenEvictionRunsMillis : 60000
+      minEvictableIdleTimeMillis : 300000
+      validationQuery : SELECT 'x'
+      testWhileIdle : true
+      testOnBorrow : false
+      testOnReturn : false
+      poolPreparedStatements : true
+      maxPoolPreparedStatementPerConnectionSize : 20
+      filters : stat
+    read:
+      url : jdbc:mysql://127.0.0.1:3306/XXXXXXXXXXXX?useUnicode=true&characterEncoding=utf8&noAccessToProcedureBodies=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+      username : xxxxxxxxxx
+      password : xxxxxxxxxx
+      initialSize : 10
+      minIdle : 5
+      maxActive : 100
+      maxWait : 60000
+      timeBetweenEvictionRunsMillis : 60000
+      minEvictableIdleTimeMillis : 300000
+      validationQuery : SELECT 'x'
+      testWhileIdle : true
+      testOnBorrow : false
+      testOnReturn : false
+      poolPreparedStatements : true
+      maxPoolPreparedStatementPerConnectionSize : 20
+      filters : stat
+
+---
+spring:
+  dubbo:
+    application:
+      name : boot-test
+    registry :
+      address : zookeeper://127.0.0.1:2181?backup=127.0.0.1:2181,127.0.0.1:2181
+      file : ~/.dubbo/dubbo-registry-overseas-shop.cache
+    protocol :
+      port : 20880
+    scan : com.boot.frame
+
+---
+#redis配置
+spring :
+  redis :
+    database : 0
+    host : 127.0.0.1
+    port : 6379
+    password :
+    #以毫秒为单位的连接超时
+    timeout : 5000
+#    #配置集群选项默认会覆盖单机配置
+#    cluster :
+#      #以逗号分隔的“主机：端口”对列表进行引导。
+#      nodes : 127.0.0.1:1001,127.0.0.1:1002
+#      #在群集中执行命令时要遵循的最大重定向数目。
+#      maxRedirects : 5
+    jedis :
+      pool :
+        maxIdle : 100
+        minIdle : 20
+        maxWait : 1000
+
+
+---
+#rocketmq config
+mq :
+  producers :
+    - nameAddr: 127.0.0.1:9876;127.0.0.1:9876
+      producerGroup : overseas-shop-address
+  consumers :
+  # -为数组表示的开端，多对象可以copy下面的一份。
+   -  nameAddr : 127.0.0.1:9876;127.0.0.1:9876
+      topic : topicA
+      messageModel : CLUSTERING
+      consumerGroup : overseas-shop-address

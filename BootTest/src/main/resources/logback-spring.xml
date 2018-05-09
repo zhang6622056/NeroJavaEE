@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="application" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Append>true</Append>
+        <encoder>
+            <pattern>1-%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            　　　<fileNamePattern>logs/date.%d{yyyy-MM-dd}.log</fileNamePattern>
+            　　　<maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>1-%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="email" class="ch.qos.logback.classic.net.SMTPAppender">
+        <smtpHost>xxxxxxx</smtpHost>
+        <Username>xxxxxxx</Username>
+        <Password>xxxxxxx</Password>
+        <to>xxxxxxx</to>
+        <from>xxxxxxx</from>
+        <subject>[测试环境]BootTest</subject>
+        <asynchronousSending>true</asynchronousSending>
+        <layout class="com.boot.frame.application.logback.OverseaLogLayout">
+            <pattern>%date%thread%level%logger%mdc%msg</pattern>
+            <cssBuilder class="ch.qos.logback.classic.html.DefaultCssBuilder"></cssBuilder>
+        </layout>
+    </appender>
+
+
+    <root level="info">
+        <appender-ref ref="application"/>
+        <appender-ref ref="console"/>
+        <appender-ref ref="email"/>
+    </root>
+    <logger name="console_out">
+        <appender-ref ref="console"/>
+    </logger>
+    <logger name="error">
+        <appender-ref ref="email"/>
+    </logger>
+
+
+
+</configuration>
