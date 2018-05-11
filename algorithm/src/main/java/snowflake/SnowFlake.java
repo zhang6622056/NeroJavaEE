@@ -82,7 +82,7 @@ public class SnowFlake {
         }
         lastStmp = currentStmp;
 
-        //特牛逼！！！不知道为啥就能出来这个结果
+        //移位拼接64位，并且与0进行异或，得出十进制结果
         return (currentStmp - START_STAMP) << TIMESTAMP_LEFT //时间戳部分
                 | dataCenterId << DATACENTER_LEFT       //数据中心部分
                 | machineId << MACHINE_LEFT             //机器标识部分
@@ -116,18 +116,15 @@ public class SnowFlake {
 
 
     public static void main(String[] args) {
-
-        Set<Long> set  = new LinkedHashSet<>();
-
-        SnowFlake snowFlake = new SnowFlake(5,5);
-        for(int i = 0 ; i < 100 ; i++){
-            set.add(snowFlake.nextId());
-        }
-
-        for(Long a : set){
-            System.out.println(a);
-        }
+        long a = System.currentTimeMillis() - 1480166465631L;
+        System.out.println(new SimpleDateFormat("YYYY-MM-dd HH:mm:ss").format(new Date(2199023255552L)));
     }
+
+
+
+
+
+
 
 
 
