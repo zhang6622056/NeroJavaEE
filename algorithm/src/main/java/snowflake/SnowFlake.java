@@ -8,7 +8,6 @@ import java.util.Set;
 
 /**
  * SnowFlake算法获取分布式唯一ID
- * //TODO 现在暂时不明return 那里算法的设计思维
  * Created by Nero on 2018-05-08.
  */
 public class SnowFlake {
@@ -113,20 +112,8 @@ public class SnowFlake {
         return System.currentTimeMillis();
     }
 
-
-
     public static void main(String[] args) {
         long a = System.currentTimeMillis() - 1480166465631L;
         System.out.println(new SimpleDateFormat("YYYY-MM-dd HH:mm:ss").format(new Date(2199023255552L)));
     }
-
-
-
-
-
-
-
-
-
-
 }

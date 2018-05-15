@@ -92,10 +92,6 @@ public class SnowFlakeTest {
         return System.currentTimeMillis();
     }
 
-
-
-
-
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
         Set<Long> set  = new LinkedHashSet<>();
@@ -110,17 +106,4 @@ public class SnowFlakeTest {
         System.out.println("总耗时："+ (end-start));
         System.out.println(set.size());
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
