@@ -33,8 +33,6 @@ public class NotInitialialization {
 
 
 
-
-
     /****
      * 被动引用三：静态常量跨类引用
      * 在编译成class阶段，就已经将ConstClass的变量传递给NotInitialialization类的常量池中
@@ -44,8 +42,4 @@ public class NotInitialialization {
     public static void main(String[] args) {
         System.out.println(ConstClass.HELLOWORLD);
     }
-
-
-
-
 }
