@@ -11,6 +11,8 @@ import java.util.Set;
 public class HashMapUse {
 
     public static void main(String[] args) {
+
+
         AbstractMap<String,String> map = new AbstractMap<String, String>() {
             @Override
             public Set<Entry<String, String>> entrySet() {
