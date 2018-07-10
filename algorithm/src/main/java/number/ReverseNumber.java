@@ -5,22 +5,26 @@ package number;
  */
 public class ReverseNumber {
 
-    private static int a = 586;
+
 
     public static void main(String[] args) {
-        System.out.println(doReverse("586"));
+
+        String a;
+        System.out.println(doReverse(789));
+    }
+
+    //反转一个三位数 789 -> 987
+    public static Integer doReverse(int number){
+        int first = number / 100;
+        int second = number / 10 % 10;
+        int third = number % 100 % 10;
+        return third * 100 + second * 10 + first;
     }
 
 
 
-    public static String doReverse(String number){
-        String a = number;
-        char f = a.charAt(2);
-        char s = a.charAt(1);
-        char t = a.charAt(0);
 
-        return new String(new char[]{f,s,t});
-    }
+
 
 
 
