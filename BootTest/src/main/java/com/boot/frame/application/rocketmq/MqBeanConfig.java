@@ -11,7 +11,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by admin on 2018-04-26.
@@ -51,5 +54,25 @@ public class MqBeanConfig{
         mqConsumer.setConsumerGroup(consumerConfig.getConsumerGroup());
         return mqConsumer;
     }
+
+
+    public static void main(String[] args) {
+        Map<String,Object> map = new HashMap<String,Object>();
+        List a = new ArrayList<>();
+        a.add(0);
+        map.put("001",a);
+
+        List b = (List) map.get("001");
+        b.add(1);
+
+        System.out.println(b.size());
+        System.out.println(a.hashCode());
+        System.out.println(b.hashCode());
+
+
+    }
+
+
+
 
 }

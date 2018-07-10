@@ -17,6 +17,8 @@
         <module>jvmana</module>
         <module>ConcurrentHigh</module>
         <module>DataStructure</module>
+        <module>../Pattern</module>
+        <module>Pattern</module>
     </modules>
 
 
