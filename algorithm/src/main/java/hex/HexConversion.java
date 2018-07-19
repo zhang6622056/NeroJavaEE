@@ -11,7 +11,7 @@ public class HexConversion {
 
 
     public static void main(String[] args) {
-        System.out.println(hexConversion(30,16));
+        System.out.println(1 % 2);
     }
 
 
