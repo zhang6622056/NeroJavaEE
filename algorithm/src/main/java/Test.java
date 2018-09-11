@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -8,21 +9,19 @@ public class Test {
 
 
     public static void main(String[] args) {
-        String a = "adsjkfljdkls1uqweuoqiwuoi 5uiouiouioaadjfljkasdjfkljkl";
-        String b = a.substring(0,getChar(a));
-        System.out.println(b);
+        System.out.println(solveMeFirst(2,3));
     }
 
 
-    public static int getChar(String a){
-        for(int i = a.length()-1 ; i > 0; i--){
-            if(a.charAt(i) - 0 == 32){
-                return i;
-            }
+    static int solveMeFirst(int a, int b) {
+        // Hint: Type return a+b; below
+        while(b != 0){
+            int sum = a ^ b;
+            b = (a & b) << 1;
+            a = sum;
         }
-        return a.length();
+        return a;
     }
-
 
 
 

@@ -1,6 +1,7 @@
 package tree;
 
 import tree.node.AvlNode;
+import tree.node.AvlTreeInteger;
 import tree.node.BinaryNode;
 import tree.node.INode.INode;
 
@@ -17,15 +18,25 @@ public class TreeTest {
 
 
     public static void main(String[] args) {
-        AvlTree avlTree = new AvlTree();
-        Random random = new Random();
+        AvlNode root = new AvlNode(59);
+        AvlTreeInteger avlTree = new AvlTreeInteger(root);
+        int[] a = new int[]{23,75,55,22,77,33,46};
 
-        for(int i = 0 ; i < 20 ; i++){
-            AvlNode avlNode = new AvlNode(random.nextInt(100));
-            avlTree.insert(avlNode);
+        for(int i = 0 ; i < a.length ; i++){
+            try {
+                avlTree.insert(a[i]);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
-        avlTree.printGraph();
+        System.out.println(avlTree.findMax().getValue());
+        System.out.println(avlTree.findMin().getValue());
+        System.out.println(avlTree.getNodeSize());
+        System.out.println(avlTree.contains(77));
+
+
+        avlTree.printGraph(4);
     }
 
 

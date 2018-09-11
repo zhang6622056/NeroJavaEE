@@ -15,7 +15,7 @@ public class AvlNode<T> extends BaseNode<T> implements INode<T>{
 
 
     public AvlNode(T t){
-        initNode(t,null,null,0);
+        initNode(t,null,null,1);
     }
 
 

@@ -19,15 +19,12 @@ public class AvlTree<T> implements ITree{
     @Override
     public void insert(INode node) {
         AvlNode avlNode = (AvlNode) node;
-
         System.out.println(avlNode.getValue());
-
         if(null == root){
             root = avlNode;
             size++;
             return;
         }
-
         root = insertNode(avlNode,root);
     }
 
